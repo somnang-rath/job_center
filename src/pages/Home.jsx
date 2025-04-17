@@ -4,7 +4,10 @@ import JobCard from "../components/JobCard";
 const Home = () => {
   return (
     <div>
-      <JobCard />
+      <div className="px-10">
+        <JobCard />
+      </div>
+      <div></div>
     </div>
   );
 };

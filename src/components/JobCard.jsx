@@ -1,43 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { QrCode, Heart } from "lucide-react";
+import Jobs from "../data/Jobs";
 import { useState } from "react";
 import QRCode from "react-qr-code";
-import j1 from "../assets/j1.jpg";
-import j2 from "../assets/j2.jpg";
 
-const jobs = [
-  {
-    id: 1,
-    pthotoUrl: [j1],
-    featured: true,
-    category: "Media",
-    title: "Video Editor",
-    address: {
-      city: "Battambang",
-      country: "Cambodia",
-    },
-    jobType: "Full Time",
-    salary: 1000,
-    salaryType: "monthly",
-    companywebsite: "www.facebook.com",
-  },
-  {
-    id: 2,
-    pthotoUrl: [j2],
-    featured: false,
-    category: "Media",
-    title: "Video Editor",
-    address: {
-      city: "Battambang",
-      country: "Cambodia",
-    },
-    jobType: "Full Time",
-    salary: 1000,
-    salaryType: "monthly",
-    companywebsite: "www.npmjs.com",
-  },
-];
 const JobCard = () => {
   const [activeQR, setActiveQR] = useState(null);
   const toggleQR = (id) => {
@@ -47,8 +14,8 @@ const JobCard = () => {
   return (
     <div className="relative">
       <ul className="w-full my-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {jobs.length > 0 &&
-          jobs.map((job) => (
+        {Jobs.length > 0 &&
+          Jobs.map((job) => (
             <li
               key={job.id}
               className="bg-white rounded shadow-sm w-full max-w-sm mx-auto"
