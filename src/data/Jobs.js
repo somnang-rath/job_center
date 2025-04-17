@@ -12,7 +12,7 @@ import j10 from "../assets/images/j10.jpg";
 const Jobs = [
   {
     id: 1,
-    pthotoUrl: [j1],
+    pthotoUrl: j1,
     featured: true,
     category: "Design",
     title: "Graphic Designer",
@@ -24,7 +24,7 @@ const Jobs = [
   },
   {
     id: 2,
-    pthotoUrl: [j2],
+    pthotoUrl: j2,
     featured: false,
     category: "Development",
     title: "React Developer",
@@ -36,7 +36,7 @@ const Jobs = [
   },
   {
     id: 3,
-    pthotoUrl: [j3],
+    pthotoUrl: j3,
     featured: false,
     category: "Marketing",
     title: "SEO Specialist",
@@ -48,7 +48,7 @@ const Jobs = [
   },
   {
     id: 4,
-    pthotoUrl: [j4],
+    pthotoUrl: j4,
     featured: true,
     category: "Finance",
     title: "Accountant",
@@ -60,7 +60,7 @@ const Jobs = [
   },
   {
     id: 5,
-    pthotoUrl: [j5],
+    pthotoUrl: j5,
     featured: false,
     category: "Media",
     title: "Video Editor",
@@ -72,7 +72,7 @@ const Jobs = [
   },
   {
     id: 6,
-    pthotoUrl: [j6],
+    pthotoUrl: j6,
     featured: false,
     category: "Sales",
     title: "Sales Executive",
@@ -84,7 +84,7 @@ const Jobs = [
   },
   {
     id: 7,
-    pthotoUrl: [j7],
+    pthotoUrl: j7,
     featured: false,
     category: "IT Support",
     title: "Technical Support",
@@ -96,7 +96,7 @@ const Jobs = [
   },
   {
     id: 8,
-    pthotoUrl: [j8],
+    pthotoUrl: j8,
     featured: true,
     category: "Education",
     title: "Computer Instructor",
@@ -108,7 +108,7 @@ const Jobs = [
   },
   {
     id: 9,
-    pthotoUrl: [j9],
+    pthotoUrl: j9,
     featured: false,
     category: "Writing",
     title: "Content Writer",
@@ -120,7 +120,7 @@ const Jobs = [
   },
   {
     id: 10,
-    pthotoUrl: [j10],
+    pthotoUrl: j10,
     featured: true,
     category: "Engineering",
     title: "Mechanical Engineer",
