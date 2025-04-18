@@ -12,8 +12,8 @@ const JobCard = () => {
   };
 
   return (
-    <div className="relative">
-      <ul className="w-full my-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    <div className="mt-16">
+      <ul className="w-full my-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
         {Jobs.length > 0 &&
           Jobs.map((job) => (
             <li
@@ -57,7 +57,10 @@ const JobCard = () => {
               </div>
               <div className="flex px-3 pb-3 justify-between items-center">
                 <div className="flex space-x-1">
-                  <button onClick={() => toggleQR(job.id)}>
+                  <button
+                    onClick={() => toggleQR(job.id)}
+                    className="cursor-pointer focus:outline-none"
+                  >
                     <QrCode
                       size={20}
                       className={
@@ -66,10 +69,10 @@ const JobCard = () => {
                     />
                   </button>
 
-                  <Heart size={20} />
+                  <Heart size={20} className="cursor-pointer" />
                 </div>
                 <div>
-                  <p>{job.salary}</p>
+                  <p className="text-sm font-semibold">${job.salary}</p>
                 </div>
               </div>
             </li>

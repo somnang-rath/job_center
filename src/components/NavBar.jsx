@@ -17,7 +17,7 @@ const link = [
 ];
 const NavBar = () => {
   return (
-    <div>
+    <div className="flex fixed w-full z-30 backdrop-blur-sm top-0">
       {/* Small NavBar */}
       <div className=" w-8/12 flex justify-between items-center m-auto p-3">
         <ul className="flex space-x-4 text-sm ">
@@ -26,7 +26,9 @@ const NavBar = () => {
               <NavLink
                 to={e.path}
                 className={({ isActive }) =>
-                  `flex  ${isActive ? "flex text-cyan-300" : ""}`
+                  `flex focus:outline-none ${
+                    isActive ? "flex text-cyan-300 focus:outline-none" : ""
+                  }`
                 }
               >
                 {e.label}
