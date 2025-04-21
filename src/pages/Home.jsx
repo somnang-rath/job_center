@@ -8,7 +8,7 @@ const Home = () => {
       <div className="px-20 2xl:px-0 2xl:w-8/12 2xl:mx-auto">
         <JobCard />
       </div>
-      <div className="bg-gray-100">
+      <div className="relative -z-20 bg-gray-100 ">
         <GuildLines />
       </div>
     </div>

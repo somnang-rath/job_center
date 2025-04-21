@@ -11,8 +11,8 @@ const link = [
     path: "aboutUs",
   },
   {
-    label: "Contact",
-    path: "contact",
+    label: "Post Job",
+    path: "postjob",
   },
 ];
 const NavBar = () => {

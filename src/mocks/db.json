@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "id": 123445566,
+      "username": "somnang",
+      "fullname": "rath_somnang",
+      "email": "somnang@gmail.com",
+      "password": "somnang@123",
+      "term": true
+    }
+  ],
+  "jobs": []
+}
