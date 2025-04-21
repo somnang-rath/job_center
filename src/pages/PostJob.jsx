@@ -7,7 +7,7 @@ import LocationForm from "../components/LocationForm";
 import CreatAJob from "../components/CreatAJob";
 
 const PostJob = () => {
-  const [isOwnCompany, setIsOwnCompany] = useState(false);
+  const [isOwnCompany, setIsOwnCompany] = useState(true);
   const [OnBehalf, setOnBehalf] = useState(false);
   const toggleOwnCompany = () => {
     setIsOwnCompany(!isOwnCompany);
@@ -21,6 +21,14 @@ const PostJob = () => {
   const [CompanyName, setCompanyName] = useState("");
   const handleCompanyName = (e) => {
     setCompanyName(e);
+  };
+
+  const [category, setCategory] = useState("");
+  const handleCategory = (e) => {
+    setCategory(e.target.innerText);
+  };
+  const handleClearCategory = () => {
+    setCategory("");
   };
   return (
     <div className="border border-r-0 border-l-0 border-gray-50 py-12">
@@ -39,6 +47,9 @@ const PostJob = () => {
                 toggleOnBehalf={toggleOnBehalf}
                 CompanyName={CompanyName}
                 handleCompanyName={handleCompanyName}
+                category={category}
+                handleCategory={handleCategory}
+                handleClearCategory={handleClearCategory}
               />
             </div>
           </div>

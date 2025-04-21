@@ -2,18 +2,19 @@ import React from "react";
 import Category from "../mocks/Category";
 import { CircleCheck, BadgeAlert } from "lucide-react";
 
-const CategoryList = () => {
-  const category = "warehouse";
+const CategoryList = (props) => {
+  const { toggleShow, category, handleCategory, handleClearCategory } = props;
   return (
-    <div>
-      <div>
-        <div className="grid grid-cols-5 border border-gray-300 h-96">
+    <div className="max-w-lg">
+      <div className="bg-white rounded p-5">
+        <div className="grid grid-cols-5 border rounded border-gray-300 h-96">
           <ul className="col-span-2 overflow-hidden overflow-y-auto">
             {Category.length > 0 &&
               Category.map((e, i) => (
                 <li
+                  onClick={handleCategory}
                   key={e + i}
-                  className="flex justify-between items-center font-bold text-lg bg-gray-200 border-b border-b-gray-100 text-gray-500 p-2 cursor-pointer"
+                  className="flex justify-between items-center space-x-7  text-gray-900 bg-gray-200 border-b border-b-gray-100  p-2 cursor-pointer"
                 >
                   <span>{e.name}</span>
                   {category === e.name ? (
@@ -28,10 +29,16 @@ const CategoryList = () => {
         </div>
         <div className="w-full my-5 border border-gray-300"> </div>
         <div className="flex justify-between items-center">
-          <button className="bg-red-500 px-10 py-1 rounded font-bold text-white cursor-pointer">
+          <button
+            onClick={handleClearCategory}
+            className="bg-red-500 px-10 py-1 rounded font-bold text-white cursor-pointer"
+          >
             Clear All
           </button>
-          <button className="bg-teal-500 px-10 py-1 rounded font-bold text-white cursor-pointer">
+          <button
+            onClick={toggleShow}
+            className="bg-teal-500 px-10 py-1 rounded font-bold text-white cursor-pointer"
+          >
             Continue
           </button>
         </div>
