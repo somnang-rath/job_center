@@ -5,13 +5,21 @@ import {
   ClipboardPlus,
   CheckCheck,
   MessageCircleX,
+  MapPin,
+  Map,
 } from "lucide-react";
+
 import CategoryList from "./CategoryList";
+import LocationForm from "./LocationForm";
 
 const CreatAJob = (props) => {
   const [categoryShow, setCategoryShow] = useState(false);
-  const toggleShow = () => {
+  const toggleCategoryShow = () => {
     setCategoryShow(!categoryShow);
+  };
+  const [locationShow, setLocationShow] = useState(false);
+  const toggleLocationShow = () => {
+    setLocationShow(!locationShow);
   };
   const {
     isOwnCompany,
@@ -23,9 +31,12 @@ const CreatAJob = (props) => {
     category,
     handleCategory,
     handleClearCategory,
+    address,
+    handleAddressChang,
   } = props;
   return (
     <div>
+      {/* Show Category Form */}
       <div
         className={`${
           categoryShow
@@ -34,10 +45,24 @@ const CreatAJob = (props) => {
         }`}
       >
         <CategoryList
-          toggleShow={toggleShow}
+          toggleCategoryShow={toggleCategoryShow}
           category={category}
           handleCategory={handleCategory}
           handleClearCategory={handleClearCategory}
+        />
+      </div>
+      {/* Show Location Form */}
+      <div
+        className={`${
+          locationShow
+            ? "fixed inset-0 backdrop-blur-xs transition-all duration-500 flex justify-center items-center z-40"
+            : "w-0 h-0 overflow-hidden"
+        }`}
+      >
+        <LocationForm
+          toggleLocationShow={toggleLocationShow}
+          address={address}
+          handleAddressChang={handleAddressChang}
         />
       </div>
       <div className="flex items-end space-x-3">
@@ -128,7 +153,7 @@ const CreatAJob = (props) => {
         </p>
         <div className="flex space-x-3">
           <button
-            onClick={toggleShow}
+            onClick={toggleCategoryShow}
             className="flex justify-center items-center space-x-1 border border-gray-300 rounded bg-gray-100 px-3 py-1 focus:outline-none cursor-pointer"
           >
             <ClipboardPlus size={20} />
@@ -147,7 +172,7 @@ const CreatAJob = (props) => {
                   : "w-0 h-0 overflow-hidden"
               }`}
             >
-              <MessageCircleX className="bg-white" />
+              <MessageCircleX />
             </button>
 
             <div className=" flex space-x-1 border border-gray-300 rounded bg-gray-100 px-3 py-1">
@@ -158,7 +183,26 @@ const CreatAJob = (props) => {
         </div>
       </div>
 
-      <div>{/* Location */}</div>
+      <div className="space-y-3 mt-5">
+        {/* Location */}
+        <p className="text-gray-900 font-bold">Your address </p>
+        <div className="flex space-x-2">
+          <button
+            onClick={toggleLocationShow}
+            className="flex flex-col justify-center items-center border border-gray-300 bg-gray-100 rounded px-3 py-1 cursor-pointer"
+          >
+            <Map />
+            <p>{address.country}</p>
+          </button>
+          <button
+            onClick={toggleLocationShow}
+            className="flex flex-col justify-center items-center border border-gray-300 bg-gray-100 rounded px-3 py-1 cursor-pointer"
+          >
+            <MapPin />
+            <p>{address.city}</p>
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

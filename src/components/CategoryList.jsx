@@ -3,10 +3,11 @@ import Category from "../mocks/Category";
 import { CircleCheck, BadgeAlert } from "lucide-react";
 
 const CategoryList = (props) => {
-  const { toggleShow, category, handleCategory, handleClearCategory } = props;
+  const { toggleCategoryShow, category, handleCategory, handleClearCategory } =
+    props;
   return (
     <div className="max-w-lg">
-      <div className="bg-white rounded p-5">
+      <div className="bg-white rounded p-5 shadow">
         <div className="grid grid-cols-5 border rounded border-gray-300 h-96">
           <ul className="col-span-2 overflow-hidden overflow-y-auto">
             {Category.length > 0 &&
@@ -36,7 +37,7 @@ const CategoryList = (props) => {
             Clear All
           </button>
           <button
-            onClick={toggleShow}
+            onClick={toggleCategoryShow}
             className="bg-teal-500 px-10 py-1 rounded font-bold text-white cursor-pointer"
           >
             Continue
