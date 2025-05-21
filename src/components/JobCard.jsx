@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { QrCode, Heart } from "lucide-react";
 import Jobs from "../data/Jobs";
-import { useState } from "react";
+// import { useState } from "react";
 import QRCode from "react-qr-code";
+import { DataAPI } from "../data/DataProvider";
 
 const JobCard = () => {
+  const posts = useContext(DataAPI);
   const [activeQR, setActiveQR] = useState(null);
   const toggleQR = (id) => {
     setActiveQR((prev) => (prev === id ? null : id));
@@ -14,21 +16,21 @@ const JobCard = () => {
   return (
     <div className="mt-16">
       <ul className="w-full my-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
-        {Jobs.length > 0 &&
-          Jobs.map((job) => (
+        {posts.length > 0 &&
+          posts.map((job) => (
             <li
               key={job.id}
               className="bg-white rounded shadow-sm w-full max-w-sm mx-auto"
             >
               <div className="relative">
                 <img
-                  src={job.pthotoUrl}
+                  src={job.image_post}
                   alt="name"
                   className="w-full h-52 rounded-t object-cover object-center"
                 />
                 {activeQR === job.id && (
                   <div className="absolute flex justify-center items-center top-0 w-full z-10 h-52 rounded-t backdrop-blur-sm">
-                    <QRCode value={job.companywebsite} size={200} />
+                    <QRCode value={job.company_website} size={200} />
                   </div>
                 )}
 
@@ -42,14 +44,14 @@ const JobCard = () => {
                 <div>
                   <p className="text-sm text-gray-400">{job.category}</p>
                   <Link
-                    to={job.companywebsite}
+                    to={job.company_website}
                     className="focus:outline-none font-bold "
                   >
                     {job.title}
                   </Link>
                 </div>
                 <div className="flex justify-between items-center capitalize">
-                  <p className="text-gray-600 text-sm">{job.address.city}</p>
+                  <p className="text-gray-600 text-sm">{job.location}</p>
                   <p className="bg-green-400 text-white rounded font-bold text-sm cursor-pointer px-1">
                     {job.jobType}
                   </p>
